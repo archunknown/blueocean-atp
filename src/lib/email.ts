@@ -4,7 +4,7 @@ import BookingConfirmationEmail from '@/components/emails/BookingConfirmationEma
 import { render } from '@react-email/components'; // Can potentially use renderAsync? 
 // Actually latest resend SDK usually takes react component directly, but render is safer for custom logic if needed.
 // However, resend.emails.send supports 'react' property directly.
-import { createClient } from '@/utils/supabase/server';
+import { createAdminClient as createClient } from '@/utils/supabase/admin';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

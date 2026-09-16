@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getPaymentStatus } from "@/lib/mercadopago";
-import { createClient } from "@/utils/supabase/server";
+import { createAdminClient as createClient } from "@/utils/supabase/admin";
 import { sendBookingConfirmation } from "@/lib/email";
 import { sendWhatsAppText } from "@/lib/whatsapp";
 

@@ -1,4 +1,4 @@
-import { createClient } from '@/utils/supabase/server';
+import { createAdminClient as createClient } from '@/utils/supabase/admin';
 import { matchFAQ } from '@/services/faq-service';
 import { getAllTours } from '@/services/tours';
 import type { Tour } from '@/types/tour-schemas';
@@ -118,7 +118,7 @@ async function processTextToolCalls(text: string, senderPhone?: string): Promise
  * Generates an AI response using the Gemini API.
  */
 async function callGemini(apiKey: string, systemPrompt: string, userMessage: string, history: MessageHistory[] = [], senderPhone?: string): Promise<string> {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent?key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`;
     
     const contents = history.map(h => ({
         role: h.role === 'assistant' ? 'model' : 'user',
@@ -148,7 +148,7 @@ async function callGemini(apiKey: string, systemPrompt: string, userMessage: str
         }],
         generationConfig: {
             temperature: 0.7,
-            maxOutputTokens: 500,
+            maxOutputTokens: 1500,
         }
     };
 
@@ -218,7 +218,7 @@ async function callGroq(apiKey: string, systemPrompt: string, userMessage: strin
         }],
         tool_choice: "auto",
         temperature: 0.7,
-        max_tokens: 500
+        max_tokens: 1500
     };
 
     const response = await fetch(url, {
@@ -251,7 +251,7 @@ async function callGroq(apiKey: string, systemPrompt: string, userMessage: strin
         }
     }
 
-    let reply = message?.content;
+    let reply = message?.content || message?.reasoning;
     if (!reply) {
         throw new Error('No completion returned from Groq.');
     }
@@ -434,7 +434,7 @@ export async function generateAIResponse(userMessage: string, senderPhone?: stri
         // Intentar Gemini (Fallback)
         if (!replyText && GEMINI_API_KEY) {
             try {
-                console.log('[AI_GENERATOR] Capa 2: Consumiendo Gemini (gemini-1.5-flash) (fallback)...');
+                console.log('[AI_GENERATOR] Capa 2: Consumiendo Gemini (gemini-3.6-flash) (fallback)...');
                 replyText = await callGemini(GEMINI_API_KEY, systemPrompt, userMessage, history, senderPhone);
             } catch (geminiErr) {
                 console.error('[AI_GENERATOR] Gemini falló:', geminiErr);

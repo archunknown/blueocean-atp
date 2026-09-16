@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import { createAdminClient as createClient } from '@/utils/supabase/admin';
 import { sendWhatsAppText } from '@/lib/whatsapp';
 import { matchFAQ } from '@/services/faq-service';
 import { getLLMResponse } from '@/services/llm-service';

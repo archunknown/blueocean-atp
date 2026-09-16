@@ -1,4 +1,4 @@
-import { createClient } from '@/utils/supabase/server';
+import { createAdminClient as createClient } from '@/utils/supabase/admin';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 export interface FAQMatchResult {

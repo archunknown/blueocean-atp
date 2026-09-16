@@ -1,8 +1,8 @@
-import { createClient } from '@/utils/supabase/server';
+import { createAdminClient as createClient } from '@/utils/supabase/admin';
 import { sendHumanTakeoverAlert } from '@/lib/email';
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
-const GEMINI_MODEL = 'gemini-3.7-flash';
+const GEMINI_MODEL = 'gemini-3.6-flash';
 
 interface GeminiResponse {
     candidates?: Array<{
@@ -34,7 +34,7 @@ async function callGemini(systemInstruction: string, prompt: string): Promise<st
         },
         generationConfig: {
             temperature: 0.1,
-            maxOutputTokens: 500,
+            maxOutputTokens: 1000,
         }
     };
 
