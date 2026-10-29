@@ -54,7 +54,7 @@ export default function BookingDetailModal({ isOpen, onClose, booking }: Booking
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
                 {/* Backdrop with blur */}
                 <motion.div
-                    initial={{ opacity: 0 }}
+                    initial={false}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     onClick={onClose}
@@ -63,7 +63,7 @@ export default function BookingDetailModal({ isOpen, onClose, booking }: Booking
 
                 {/* Modal Card */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                    initial={false}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: 20 }}
                     transition={{ type: "spring", duration: 0.5 }}

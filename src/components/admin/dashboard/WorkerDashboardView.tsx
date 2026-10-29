@@ -87,10 +87,10 @@ export default function WorkerDashboardView({
     bookingsPerDay,
 }: WorkerDashboardViewProps) {
     return (
-        <div className="p-6 lg:p-8 space-y-8">
+        <div className="operations-page dashboard-page p-6 lg:p-8 space-y-8">
             {/* Header */}
-            <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }}>
-                <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+            <motion.div initial={false} animate={{ opacity: 1, y: 0 }}>
+                <h1 className="text-2xl font-bold text-gray-900">El pulso de Blue Ocean</h1>
                 <p className="mt-1 text-sm text-gray-500">Vista operativa · Blue Ocean Paracas</p>
                 <span className="inline-flex items-center mt-2 px-2.5 py-0.5 rounded-full text-xs font-medium bg-turquoise/10 text-turquoise border border-turquoise/20">
                     Modo Trabajador
@@ -99,7 +99,7 @@ export default function WorkerDashboardView({
 
             {/* KPI Grid */}
             <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 }}
                 className="grid gap-4 sm:grid-cols-3"
@@ -129,7 +129,7 @@ export default function WorkerDashboardView({
 
             {/* Tabla de hoy + Gráfico semanal */}
             <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.12 }}
                 className="grid gap-6 lg:grid-cols-3"
@@ -236,7 +236,7 @@ export default function WorkerDashboardView({
 
             {/* Acciones Rápidas */}
             <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
                 className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"

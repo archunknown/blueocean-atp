@@ -94,7 +94,7 @@ export default function MetricsPage() {
     ].filter(d => d.value > 0)
 
     return (
-        <div className="bg-gray-50 min-h-screen p-6 lg:p-10 space-y-8">
+        <div className="operations-page bg-gray-50 min-h-screen p-6 lg:p-10 space-y-8">
 
             {/* Page header */}
             <div className="flex items-start justify-between">

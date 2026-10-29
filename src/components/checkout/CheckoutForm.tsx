@@ -106,7 +106,7 @@ export default function CheckoutForm({ secureParams, settings }: CheckoutFormPro
     }
 
     return (
-        <div className="relative min-h-[600px]">
+        <div className="checkout-form relative min-h-[600px]">
             <form action={formAction} className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 {/* Hidden Inputs for Server Action */}
                 <input type="hidden" name="tourId" value={secureParams.tourId} />

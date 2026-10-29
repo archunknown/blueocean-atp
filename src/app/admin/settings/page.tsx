@@ -11,7 +11,7 @@ export default async function SettingsPage() {
     const settings = await getGlobalSettings()
 
     return (
-        <div className="space-y-8 p-6 sm:p-8 max-w-7xl mx-auto">
+        <div className="operations-page space-y-8 p-6 sm:p-8 max-w-7xl mx-auto">
             <div>
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900 flex items-center gap-3">
                     <SettingsIcon className="h-8 w-8 text-gray-700" />

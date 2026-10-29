@@ -63,7 +63,7 @@ export default function DashboardOverview({ stats, role }: DashboardOverviewProp
         <div className="p-6 lg:p-8">
             {/* Welcome */}
             <motion.div
-                initial={{ opacity: 0, y: -20 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-8"
             >
@@ -121,7 +121,7 @@ export default function DashboardOverview({ stats, role }: DashboardOverviewProp
                     return (
                         <motion.div
                             key={card.name}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={false}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                         >
@@ -141,7 +141,7 @@ export default function DashboardOverview({ stats, role }: DashboardOverviewProp
 
             {/* Quick Actions */}
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
                 className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"

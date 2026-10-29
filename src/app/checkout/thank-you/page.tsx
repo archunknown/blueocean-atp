@@ -39,7 +39,7 @@ export default async function ThankYouPage({
     const whatsappUrl = `https://wa.me/51999999999?text=${encodeURIComponent(whatsappMessage)}`;
 
     return (
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="confirmation-page min-h-screen flex items-center justify-center p-4">
             <div className="max-w-xl w-full bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
 
                 {/* Header Verde */}

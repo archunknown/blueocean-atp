@@ -25,17 +25,17 @@ export default async function AdminLayout({
     }
 
     return (
-        <div className="flex h-screen bg-gray-50">
+        <div className="admin-app flex h-dvh">
             {/* Sidebar */}
             <AdminSidebar user={user} role={role} />
 
             {/* Main Content */}
-            <div className="flex flex-1 flex-col overflow-hidden">
+            <div className="admin-workspace flex flex-1 flex-col overflow-hidden">
                 {/* Header */}
                 <AdminHeader user={user} />
 
                 {/* Page Content */}
-                <main className="flex-1 overflow-y-auto">
+                <main className="admin-content flex-1 overflow-y-auto">
                     {children}
                 </main>
             </div>

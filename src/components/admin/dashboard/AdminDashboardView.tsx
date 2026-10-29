@@ -95,16 +95,16 @@ export default function AdminDashboardView({
     salesChannel,
 }: AdminDashboardViewProps) {
     return (
-        <div className="p-6 lg:p-8 space-y-8">
+        <div className="operations-page dashboard-page p-6 lg:p-8 space-y-8">
             {/* Header */}
-            <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }}>
-                <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+            <motion.div initial={false} animate={{ opacity: 1, y: 0 }}>
+                <h1 className="text-2xl font-bold text-gray-900">El pulso de Blue Ocean</h1>
                 <p className="mt-1 text-sm text-gray-500">Panel de administración · Blue Ocean Paracas</p>
             </motion.div>
 
             {/* KPI Grid */}
             <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 }}
                 className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"
@@ -141,7 +141,7 @@ export default function AdminDashboardView({
 
             {/* Gráficos — fila 1: área (wide) + dona de estados */}
             <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.12 }}
                 className="grid gap-6 lg:grid-cols-3"
@@ -237,7 +237,7 @@ export default function AdminDashboardView({
 
             {/* Gráficos — fila 2: top tours + canal de venta */}
             <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
                 className="grid gap-6 lg:grid-cols-2"
@@ -327,7 +327,7 @@ export default function AdminDashboardView({
 
             {/* Acciones Rápidas */}
             <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.28 }}
                 className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"

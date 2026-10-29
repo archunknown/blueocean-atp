@@ -18,11 +18,11 @@ export default function ClientProvider({ children, settings }: Props) {
     const isIsolatedRoute = pathname.startsWith('/login') || pathname.startsWith('/admin')
 
     return (
-        <>
+        <div className={`site-shell ${isIsolatedRoute ? 'isolated-shell' : 'public-shell'}`} data-route={pathname}>
             {!isIsolatedRoute && <Navbar />}
-            {children}
+            <div id="page-content">{children}</div>
             {!isIsolatedRoute && <WhatsAppButton phoneNumber={settings?.whatsapp_primary} />}
             {!isIsolatedRoute && <Footer email={settings?.contact_email} phoneNumber={settings?.whatsapp_primary} />}
-        </>
+        </div>
     )
 }

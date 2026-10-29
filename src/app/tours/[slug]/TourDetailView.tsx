@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { CheckCircleIcon, ClockIcon, UsersIcon, CalendarIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 import type { Tour } from '@/types/tour-schemas';
@@ -41,55 +40,12 @@ export default function TourDetailView({ tour, allTours }: TourDetailViewProps) 
     router.push(`/checkout?${params.toString()}`);
   };
 
-  const InfoCard = () => (
-    <div className="md:sticky md:top-28">
-      <div className="rounded-2xl bg-white shadow-lg p-6 border border-gray-100">
-        <h3 className="text-xl font-bold text-oceanBlue mb-4 border-b pb-3">Resumen del {tour.category}</h3>
-        <div className="space-y-4">
-          <div className="flex items-center">
-            <ClockIcon className="h-6 w-6 text-turquoise mr-3" />
-            <div>
-              <p className="font-semibold text-gray-800">Duración</p>
-              <p className="text-gray-600">{tour.duration}</p>
-            </div>
-          </div>
-          {tour.schedule && (
-            <div className="flex items-center">
-              <CalendarIcon className="h-6 w-6 text-turquoise mr-3" />
-              <div>
-                <p className="font-semibold text-gray-800">Horario</p>
-                <p className="text-gray-600">{tour.schedule}</p>
-              </div>
-            </div>
-          )}
-          {tour.group_size && (
-            <div className="flex items-center">
-              <UsersIcon className="h-6 w-6 text-turquoise mr-3" />
-              <div>
-                <p className="font-semibold text-gray-800">Grupo</p>
-                <p className="text-gray-600">{tour.group_size}</p>
-              </div>
-            </div>
-          )}
-        </div>
-        <Link href="/contact" className="mt-6 block w-full text-center rounded-xl bg-oceanBlue py-3 font-bold text-white transition-all duration-300 hover:bg-turquoise active:scale-95">
-          ¡Consultar Disponibilidad!
-        </Link>
-      </div>
-    </div>
-  );
-
-
-
   return (
     <>
-      <div className="bg-lightGray">
+      <div className="tour-detail">
         {/* ... (Existing Hero Section code same as before, no changes to Hero) ... */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="relative h-[50vh] md:h-[60vh] w-full flex items-center justify-center text-white"
+        <section
+          className="tour-hero relative h-[50vh] md:h-[60vh] w-full flex items-center justify-center text-white"
         >
           <Image
             src={tour.image_url}
@@ -99,27 +55,21 @@ export default function TourDetailView({ tour, allTours }: TourDetailViewProps) 
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+          <div
             className="relative z-10 text-center px-4"
           >
             <span className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-1 text-sm font-medium border border-white/30 mb-3">{tour.category}</span>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight text-shadow-lg">{tour.title}</h1>
             <p className="mt-2 text-3xl font-bold text-warmYellow text-shadow-md">S/ {Number(tour.price).toFixed(2)}</p>
-          </motion.div>
-        </motion.section>
+          </div>
+        </section>
 
         {/* Main Content */}
-        <section className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <section className="tour-content container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="grid grid-cols-1 md:grid-cols-3 md:gap-12 lg:gap-16">
 
             {/* Left Column */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+            <div
               className="md:col-span-2"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-oceanBlue mb-4">Descripción General</h2>
@@ -160,17 +110,14 @@ export default function TourDetailView({ tour, allTours }: TourDetailViewProps) 
                   </ul>
                 </div>
               )}
-            </motion.div>
+            </div>
 
             {/* Right Column (Info Card) */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+            <div
               className="mt-12 md:mt-0"
             >
               <div className="md:sticky md:top-28">
-                <div className="rounded-2xl bg-white shadow-lg p-6 border border-gray-100">
+                <div className="booking-panel">
                   <h3 className="text-xl font-bold text-oceanBlue mb-4 border-b pb-3">Resumen del {tour.category}</h3>
                   <div className="space-y-4">
                     <div className="flex items-center">
@@ -180,14 +127,16 @@ export default function TourDetailView({ tour, allTours }: TourDetailViewProps) 
                         <p className="text-gray-600">{tour.duration}</p>
                       </div>
                     </div>
-                    {/* ... keep existing icons ... */}
+                    {tour.schedule && <div className="flex items-center"><CalendarIcon className="h-6 w-6 text-turquoise mr-3" /><div><p className="font-semibold text-gray-800">Horario</p><p className="text-gray-600">{tour.schedule}</p></div></div>}
+                    {tour.group_size && <div className="flex items-center"><UsersIcon className="h-6 w-6 text-turquoise mr-3" /><div><p className="font-semibold text-gray-800">Grupo</p><p className="text-gray-600">{tour.group_size}</p></div></div>}
                   </div>
 
                   {/* Booking Inputs */}
                   <div className="mt-6 space-y-4 border-t border-gray-100 pt-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Fecha</label>
+                      <label htmlFor="booking-date" className="block text-sm font-medium text-gray-700 mb-1">Fecha de salida</label>
                       <input
+                        id="booking-date"
                         type="date"
                         min={new Date().toISOString().split('T')[0]}
                         value={date}
@@ -240,8 +189,9 @@ export default function TourDetailView({ tour, allTours }: TourDetailViewProps) 
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Personas (Pax)</label>
+                      <label htmlFor="booking-pax" className="block text-sm font-medium text-gray-700 mb-1">Personas (Pax)</label>
                       <input
+                        id="booking-pax"
                         type="number"
                         min="1"
                         value={pax}
@@ -265,7 +215,7 @@ export default function TourDetailView({ tour, allTours }: TourDetailViewProps) 
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
           </div>
         </section>

@@ -111,7 +111,7 @@ export default function TourForm({ tour, mode }: TourFormProps) {
 
     return (
         <motion.form
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             action={handleSubmit}
             className="space-y-8"

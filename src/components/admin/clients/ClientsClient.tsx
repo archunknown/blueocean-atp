@@ -96,7 +96,7 @@ export default function ClientsClient({ initialClients }: { initialClients: Clie
                                 {filteredClients.map((client) => (
                                     <motion.tr
                                         key={client.id}
-                                        initial={{ opacity: 0 }}
+                                        initial={false}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         layout
@@ -190,7 +190,7 @@ export default function ClientsClient({ initialClients }: { initialClients: Clie
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
                     <motion.div
-                        initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                        initial={false}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         className="w-full max-w-md rounded-xl bg-white p-5 sm:p-6 shadow-2xl mx-4"
                     >

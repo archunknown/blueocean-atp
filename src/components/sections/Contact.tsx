@@ -1,6 +1,5 @@
 'use client';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -21,6 +20,7 @@ interface Props {
 }
 
 export default function Contact({ email, phoneNumber }: Props) {
+  const Heading = usePathname() === '/contact' ? 'h1' : 'h2';
   const {
     register,
     handleSubmit,
@@ -53,20 +53,14 @@ export default function Contact({ email, phoneNumber }: Props) {
   `;
 
   return (
-    <section className="bg-lightGray pt-28 sm:pt-32 lg:pt-36 pb-20 sm:pb-24 lg:pb-28">
+    <section className="contact-section legacy-editorial">
       <div className="container mx-auto px-4">
-        <h2 className="text-6xl font-black text-center text-oceanBlue mb-16 tracking-tight">
-          ¿Listo para tu Aventura?
-        </h2>
+        <div className="contact-heading"><p className="eyebrow">HABLEMOS DE TU VIAJE</p><Heading>Tu próxima salida,<br /><em>la planeamos contigo.</em></Heading><p>¿Una duda, un viaje en grupo o tu primera vez en Paracas? Cuéntanos qué tienes en mente.</p></div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-stretch">
           {/* Formulario de Contacto */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="bg-white p-8 rounded-2xl shadow-xl"
+          <div
+            className="bg-white p-6 sm:p-9"
           >
             <h3 className="text-3xl font-bold text-oceanBlue mb-2">Envíanos un Mensaje</h3>
             <div className="mb-6 flex flex-wrap gap-x-4 gap-y-2 text-sm text-oceanBlue/80">
@@ -120,11 +114,9 @@ export default function Contact({ email, phoneNumber }: Props) {
                 )}
               </div>
 
-              <motion.button
+              <button
                 type="submit"
                 className="w-full rounded-full bg-[#25D366] py-3 text-lg font-bold text-white transition-all duration-300 hover:bg-[#128C7E] hover:shadow-lg"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
               >
                 <span className="flex items-center justify-center gap-2">
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -132,20 +124,16 @@ export default function Contact({ email, phoneNumber }: Props) {
                   </svg>
                   Enviar por WhatsApp
                 </span>
-              </motion.button>
+              </button>
               <p className="text-center text-sm text-oceanBlue/60 mt-4">
-                🔥 8 personas han preguntado hoy
+                BLUE OCEAN / ATENCIÓN EN PARACAS
               </p>
             </form>
-          </motion.div>
+          </div>
 
           {/* Columna 2: Información de Contacto y Mapa */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="bg-white p-8 rounded-2xl shadow-xl"
+          <div
+            className="bg-white p-6 sm:p-9"
           >
             {/* Información de Contacto */}
             <div className="mb-8">
@@ -183,7 +171,7 @@ export default function Contact({ email, phoneNumber }: Props) {
                 <FakeMap />
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

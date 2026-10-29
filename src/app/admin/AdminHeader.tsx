@@ -1,16 +1,31 @@
-'use client'
-
-interface AdminHeaderProps {
-    user: {
-        email?: string
-    }
-}
-
-export default function AdminHeader({ user }: AdminHeaderProps) {
-    return (
-        <header className="flex h-16 items-center justify-end border-b border-gray-200 bg-white px-6 shadow-sm">
-            <div className="flex items-center gap-3">
-            </div>
-        </header>
-    )
+'use client';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+const names: Record<string, string> = {
+  tours: 'Experiencias',
+  bookings: 'Reservas',
+  clients: 'Clientes',
+  users: 'Usuarios',
+  custodia: 'Custodia',
+  metrics: 'Métricas del bot',
+  conversations: 'Conversaciones',
+  gallery: 'Galería',
+  testimonials: 'Testimonios',
+  settings: 'Configuración',
+};
+export default function AdminHeader(_props: { user: { email?: string } }) {
+  const pathname = usePathname();
+  const area = names[pathname.split('/')[2]] || 'Vista general';
+  return (
+    <header className="admin-topbar">
+      <div>
+        <p className="eyebrow">BLUE OCEAN / OPERACIONES</p>
+        <p className="admin-area-name">{area}</p>
+      </div>
+      <Link href="/">
+        Visitar la web <ArrowUpRight size={17} />
+      </Link>
+    </header>
+  );
 }
