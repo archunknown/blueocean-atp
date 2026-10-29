@@ -210,7 +210,7 @@ export default function CustodiaPage() {
     const activePets = items.filter(i => i.tipo === 'mascota').length
 
     return (
-        <div className="p-6 md:p-8 space-y-6">
+        <div className="operations-page p-6 md:p-8 space-y-6">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900">Módulo de Custodia</h1>
@@ -424,7 +424,7 @@ export default function CustodiaPage() {
                 {receiptItem && (
                     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                         <motion.div
-                            initial={{ scale: 0.95, opacity: 0 }}
+                            initial={false}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.95, opacity: 0 }}
                             className="bg-white rounded-2xl shadow-xl max-w-sm w-full overflow-hidden border border-gray-100"

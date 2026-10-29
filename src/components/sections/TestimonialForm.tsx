@@ -31,7 +31,7 @@ export default function TestimonialForm() {
     }
 
     return (
-        <div className="w-full max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+        <div className="review-form w-full max-w-2xl mx-auto">
             <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-blue-900 mb-2">Comparte tu Experiencia</h3>
                 <p className="text-gray-500">Tu opinión nos ayuda a mejorar y guía a otros viajeros.</p>
@@ -66,6 +66,8 @@ export default function TestimonialForm() {
                         {[1, 2, 3, 4, 5].map((star) => (
                             <button
                                 type="button"
+                                aria-label={`${star} ${star === 1 ? 'estrella' : 'estrellas'}`}
+                                aria-pressed={rating === star}
                                 key={star}
                                 onClick={() => setRating(star)}
                                 onMouseEnter={() => setHoverRating(star)}

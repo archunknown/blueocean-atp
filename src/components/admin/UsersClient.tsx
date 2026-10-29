@@ -142,7 +142,7 @@ export default function UsersClient({ initialUsers, currentUserId }: { initialUs
                 {initialUsers.map((user) => (
                     <motion.div
                         key={user.id}
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={false}
                         animate={{ opacity: 1, y: 0 }}
                         className={`relative overflow-hidden rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow ${user.id === currentUserId ? 'ring-2 ring-blue-500/20' : ''}`}
                     >
@@ -197,7 +197,7 @@ export default function UsersClient({ initialUsers, currentUserId }: { initialUs
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm overflow-y-auto">
                     <motion.div
-                        initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                        initial={false}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         className="w-full max-w-lg rounded-xl bg-white shadow-2xl mx-4 overflow-hidden"
                     >

@@ -35,7 +35,7 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
 
     if (error || !booking) {
         return (
-            <div className="min-h-screen bg-red-600 flex flex-col items-center justify-center p-6 text-white text-center">
+            <div className="verification-page min-h-screen bg-red-600 flex flex-col items-center justify-center p-6 text-white text-center">
                 <XCircleIcon className="w-32 h-32 mb-6 animate-pulse" />
                 <h1 className="text-4xl font-black uppercase tracking-wider mb-2">CÓDIGO INVÁLIDO</h1>
                 <p className="text-red-100 text-lg">No se encontró ninguna reserva con este identificador.</p>
@@ -59,7 +59,7 @@ export default async function VerifyPage({ params }: VerifyPageProps) {
     const tourDate = new Date(booking.tour_date).toLocaleDateString('es-PE', { weekday: 'short', day: 'numeric', month: 'short' });
 
     return (
-        <div className={`min-h-screen ${statusColor} text-white p-6 flex flex-col items-center`}>
+        <div className={`verification-page min-h-screen ${statusColor} text-white p-6 flex flex-col items-center`}>
 
             {/* Status Header */}
             <div className="flex flex-col items-center justify-center py-10">

@@ -23,10 +23,10 @@ export default async function Home() {
   return (
     <main>
       <Hero videoUrl={settings?.hero_video_url} />
-      <WhyChooseUs />
       <Tours tours={tours} limit={3} showButton={true} />
-      <OurProcess />
+      <WhyChooseUs />
       <Gallery images={galleryImages} />
+      <OurProcess />
       <InstagramFeed />
       <Testimonials />
       <FAQ />

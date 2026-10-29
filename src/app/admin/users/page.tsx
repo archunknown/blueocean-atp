@@ -27,7 +27,7 @@ export default async function UsersPage() {
     const { data: { user } } = await supabase.auth.getUser()
 
     return (
-        <div className="space-y-8 p-6 sm:p-8">
+        <div className="operations-page space-y-8 p-6 sm:p-8">
             <div>
                 <h1 className="text-2xl font-bold tracking-tight text-gray-900">Usuarios</h1>
                 <p className="text-sm text-gray-500">Gestiona el acceso y los roles del equipo.</p>

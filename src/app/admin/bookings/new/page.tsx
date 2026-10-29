@@ -35,7 +35,7 @@ export default async function NewManualBookingPage() {
     }))
 
     return (
-        <div className="p-6 lg:p-8 max-w-2xl mx-auto">
+        <div className="operations-page p-6 lg:p-8 max-w-2xl mx-auto">
             {/* Header */}
             <div className="mb-8">
                 <Link

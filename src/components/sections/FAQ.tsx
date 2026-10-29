@@ -37,12 +37,10 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-24 bg-lightGray">
+    <section className="faq-section legacy-editorial">
       <div className="container mx-auto px-4">
-        <h2 className="text-6xl font-black text-center text-oceanBlue mb-16 tracking-tight">
-          Preguntas Frecuentes
-        </h2>
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="faq-layout"><div><p className="eyebrow">ANTES DE SALIR</p><h2>Un viaje con<br /><em>menos dudas.</em></h2></div>
+        <div className="faq-items">
           {faqData.map((item, index) => (
             <motion.div
               key={index}
@@ -54,6 +52,8 @@ export default function FAQ() {
             >
               <button
                 className="flex w-full items-center justify-between p-6 text-left font-bold text-oceanBlue focus:outline-none"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
                 onClick={() => toggleFAQ(index)}
               >
                 <span className="text-xl">{item.question}</span>
@@ -75,7 +75,8 @@ export default function FAQ() {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
-                    className="px-6 pb-6 text-gray-700"
+                    id={`faq-answer-${index}`}
+                    className="px-0 pb-6 text-gray-700"
                   >
                     <p>{item.answer}</p>
                   </motion.div>
@@ -83,7 +84,7 @@ export default function FAQ() {
               </AnimatePresence>
             </motion.div>
           ))}
-        </div>
+        </div></div>
       </div>
     </section>
   );

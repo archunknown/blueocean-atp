@@ -24,7 +24,7 @@ export default async function BookingsPage() {
     const canCreateBooking = role === 'admin' || role === 'worker'
 
     return (
-        <div className="p-6 lg:p-8 space-y-6">
+        <div className="operations-page p-6 lg:p-8 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                     <h1 className="text-3xl font-bold text-gray-900">Reservas</h1>

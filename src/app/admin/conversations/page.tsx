@@ -187,7 +187,7 @@ export default function ConversationsPage() {
     }
 
     return (
-        <div className="p-6 md:p-8 h-[calc(100vh-64px)] flex flex-col">
+        <div className="operations-page p-6 md:p-8 conversation-workspace flex flex-col">
             <div className="flex items-center justify-between mb-6">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">

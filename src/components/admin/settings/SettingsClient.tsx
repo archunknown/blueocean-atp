@@ -165,7 +165,7 @@ export default function SettingsClient({ initialSettings, userRole, userEmail }:
                 {/* --- GENERAL TAB --- */}
                 {activeTab === 'general' && (
                     <motion.div
-                        initial={{ opacity: 0, x: -10 }}
+                        initial={false}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
                     >
@@ -217,7 +217,7 @@ export default function SettingsClient({ initialSettings, userRole, userEmail }:
                 {/* --- MEDIA TAB --- */}
                 {activeTab === 'media' && (
                     <motion.div
-                        initial={{ opacity: 0, x: -10 }}
+                        initial={false}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
                     >
@@ -303,7 +303,7 @@ export default function SettingsClient({ initialSettings, userRole, userEmail }:
                 {/* --- ACCOUNT TAB --- */}
                 {activeTab === 'account' && (
                     <motion.div
-                        initial={{ opacity: 0, x: 10 }}
+                        initial={false}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
                     >

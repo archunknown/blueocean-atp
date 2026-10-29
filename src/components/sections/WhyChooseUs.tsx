@@ -1,167 +1,57 @@
-'use client';
-import { motion } from 'framer-motion';
-
-const features = [
-  {
-    title: '3+ años de experiencia',
-    description: 'Líderes en turismo de aventura en Paracas, con un historial probado de excelencia.',
-    icon: (
-      <svg
-        className="h-8 w-8 xs:h-9 xs:w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Guías certificados',
-    description: 'Expertos locales bilingües que conocen cada rincón de Paracas.',
-    icon: (
-      <svg className="h-8 w-8 xs:h-9 xs:w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Seguridad garantizada',
-    description: 'Equipos de última generación y protocolos estrictos para tu tranquilidad.',
-    icon: (
-      <svg className="h-8 w-8 xs:h-9 xs:w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Grupos pequeños',
-    description: 'Experiencias personalizadas con atención exclusiva en cada tour.',
-    icon: (
-      <svg className="h-8 w-8 xs:h-9 xs:w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Compromiso ambiental',
-    description: 'Turismo sostenible que protege la belleza natural de Paracas.',
-    icon: (
-      <svg className="h-8 w-8 xs:h-9 xs:w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Cancelación flexible',
-    description: 'Entendemos que los planes cambian. Opciones sin estrés.',
-    icon: (
-      <svg className="h-8 w-8 xs:h-9 xs:w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-    ),
-  },
-];
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.4, 0, 0.2, 1] as const,
-    },
-  },
-};
-
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 export default function WhyChooseUs() {
   return (
-    <section className="bg-white py-16 xs:py-18 sm:py-20 md:py-24 lg:py-28">
-      <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
-        {/* Encabezado - Ultra Responsive */}
-        <div className="mb-10 text-center xs:mb-12 sm:mb-14 lg:mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl font-black tracking-tight text-oceanBlue xs:text-4xl sm:text-5xl lg:text-6xl"
-          >
-            ¿Por Qué Elegirnos?
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto mt-2.5 max-w-2xl text-sm text-gray-600 xs:text-base xs:mt-3 sm:mt-4 sm:text-lg"
-          >
-            Más que tours, creamos experiencias inolvidables con los más altos estándares
-          </motion.p>
+    <section className="local-story section-space">
+      <div className="editorial-container story-grid">
+        <div className="story-image">
+          <Image
+            src="/gallery/reserva/reserva.jpeg"
+            alt="Viajeros frente al mar y los acantilados de la Reserva Nacional de Paracas"
+            fill
+            sizes="(max-width: 760px) 100vw, 45vw"
+            className="object-cover"
+          />
+          <span className="image-note">
+            EL DESIERTO TAMBIÉN
+            <br />
+            SABE A MAR.
+          </span>
         </div>
-
-        {/* Grid de características - Perfectamente Responsive */}
-        <motion.div
-          className="grid grid-cols-1 gap-5 xs:gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8 xl:gap-10"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-lightGray to-gray-100 p-5 shadow-md transition-all duration-300 hover:shadow-2xl xs:p-6 sm:p-7 lg:p-8"
-              variants={itemVariants}
-              whileHover={{ y: -8 }}
-            >
-              {/* Efecto de brillo en hover */}
-              <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full"></div>
-
-              {/* Contenido */}
-              <div className="relative z-10">
-                {/* Icono con fondo */}
-                <div className="mb-3 inline-flex rounded-xl bg-gray-100 p-2.5 text-black transition-all duration-300 group-hover:scale-110 xs:mb-4 xs:p-3 sm:mb-5 sm:p-3.5 lg:mb-6">
-                  {feature.icon}
-                </div>
-
-                {/* Título */}
-                <h3 className="mb-1.5 text-lg font-bold text-oceanBlue xs:text-xl xs:mb-2 sm:text-2xl">
-                  {feature.title}
-                </h3>
-
-                {/* Descripción */}
-                <p className="text-xs leading-relaxed text-gray-700 xs:text-sm sm:text-base">
-                  {feature.description}
-                </p>
-              </div>
-
-              {/* Decoración */}
-              <div className="absolute -bottom-2 -right-2 h-20 w-20 rounded-full bg-turquoise/5 transition-all duration-300 group-hover:scale-150 group-hover:bg-turquoise/10 xs:h-22 xs:w-22 sm:h-24 sm:w-24"></div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* CTA adicional - Responsive */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 text-center xs:mt-12 sm:mt-16"
-        >
-          <p className="text-base font-semibold text-oceanBlue xs:text-lg sm:text-xl">
-            Más de <span className="text-turquoise">1,000 viajeros felices</span> confían en nosotros
+        <div className="story-copy">
+          <p className="eyebrow">02 / NUESTRO LUGAR EN EL MUNDO</p>
+          <h2 className="display-heading">
+            Paracas.
+            <br />
+            De la orilla
+            <br />
+            <em>al desierto.</em>
+          </h2>
+          <p>
+            Una mañana entre islas. El viento en la reserva. Las dunas al final
+            del día. Paracas tiene muchas formas de sorprenderte.
           </p>
-        </motion.div>
+          <p>
+            En Blue Ocean reunimos tours y alquileres para que encuentres la
+            tuya, con atención desde aquí, en Paracas.
+          </p>
+          <div className="story-facts">
+            <div>
+              <span>01</span>
+              <h3>Mar y naturaleza</h3>
+              <p>Islas Ballestas y Reserva Nacional de Paracas.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <h3>A tu manera</h3>
+              <p>Salidas guiadas y opciones de alquiler.</p>
+            </div>
+          </div>
+          <Link href="/contact" className="text-link">
+            Conversemos sobre tu viaje <ArrowUpRight size={18} />
+          </Link>
+        </div>
       </div>
     </section>
   );

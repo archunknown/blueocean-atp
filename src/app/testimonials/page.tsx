@@ -4,7 +4,7 @@ import TestimonialsSection from '@/components/sections/Testimonials';
 export default function TestimonialsPage() {
   return (
     <main>
-      <TestimonialsSection />
+      <TestimonialsSection standalone />
     </main>
   );
 }

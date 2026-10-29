@@ -116,7 +116,7 @@ export default function GalleryManager({ initialImages }: GalleryManagerProps) {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="space-y-8"
@@ -194,7 +194,7 @@ export default function GalleryManager({ initialImages }: GalleryManagerProps) {
                         <motion.div
                             key={img.id}
                             layout
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={false}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             className="group relative aspect-square bg-gray-100 rounded-xl overflow-hidden border border-gray-200 shadow-sm"

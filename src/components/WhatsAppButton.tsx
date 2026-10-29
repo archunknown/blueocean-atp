@@ -13,7 +13,8 @@ export default function WhatsAppButton({ phoneNumber }: Props) {
       href={`https://wa.me/${phone}?text=Hola%20Blue%20Ocean!%20Me%20interesa%20información%20sobre%20sus%20tours`}
       target="_blank"
       rel="noopener noreferrer"
-      className="group fixed bottom-6 right-6 z-50 flex items-center justify-center rounded-full bg-[#25D366] p-4 text-white shadow-2xl hover:shadow-[0_0_30px_rgba(37,211,102,0.6)]"
+      aria-label="Consultar por WhatsApp"
+      className="whatsapp-link group fixed bottom-6 right-6 z-50 flex items-center justify-center "
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 2, duration: 0.5, type: "spring" }}

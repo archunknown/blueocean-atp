@@ -87,10 +87,10 @@ export default function TestimonialsAdminPage() {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="space-y-8 p-6 sm:p-8 max-w-7xl mx-auto"
+            className="operations-page space-y-8 p-6 sm:p-8 max-w-7xl mx-auto"
         >
             {/* Header & Stats */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -182,7 +182,7 @@ export default function TestimonialsAdminPage() {
                                 <motion.div
                                     key={testimonial.id}
                                     layout
-                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    initial={false}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.95 }}
                                     className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-200 flex flex-col"

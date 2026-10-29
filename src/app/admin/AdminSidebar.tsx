@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import {
@@ -53,22 +54,14 @@ export default function AdminSidebar({ user, role }: AdminSidebarProps) {
         <motion.aside
             initial={false}
             animate={{ width: isCollapsed ? 80 : 280 }}
-            className="relative flex flex-col border-r border-gray-200 bg-white shadow-sm"
+            className="admin-sidebar relative flex flex-col"
         >
             {/* Logo */}
-            <div className="flex h-16 items-center justify-between border-b border-gray-200 px-6">
-                {!isCollapsed && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                    >
-                        <h2 className="text-lg font-bold text-gray-900">Blue Ocean</h2>
-                        <p className="text-xs text-gray-500">Admin Panel</p>
-                    </motion.div>
-                )}
+            <div className="sidebar-brand flex items-center justify-between">
+                <Link href="/admin" aria-label="Blue Ocean, panel"><Image unoptimized src="/logo.png" alt="Blue Ocean" width={45} height={45} />{!isCollapsed && <span><strong>Blue Ocean</strong><small>OPERACIONES / PARACAS</small></span>}</Link>
 
                 <button
+                    aria-label={isCollapsed ? 'Expandir navegación' : 'Contraer navegación'}
                     onClick={() => setIsCollapsed(!isCollapsed)}
                     className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
                 >
@@ -87,6 +80,8 @@ export default function AdminSidebar({ user, role }: AdminSidebarProps) {
                     return (
                         <Link
                             key={item.href}
+                            aria-current={isActive ? 'page' : undefined}
+                            title={item.name}
                             href={item.href}
                             className={`
                 group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all
@@ -100,7 +95,7 @@ export default function AdminSidebar({ user, role }: AdminSidebarProps) {
 
                             {!isCollapsed && (
                                 <motion.span
-                                    initial={{ opacity: 0 }}
+                                    initial={false}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                 >
@@ -120,6 +115,7 @@ export default function AdminSidebar({ user, role }: AdminSidebarProps) {
                 })}
             </nav>
 
+            <form className="sidebar-mobile-signout" action={signout}><button type="submit" aria-label="Cerrar sesión"><LogOut size={18} /></button></form>
             {/* User Section */}
             <div className="border-t border-gray-200 p-4">
                 <div className={`flex items-center gap-3 ${isCollapsed ? 'justify-center' : ''}`}>
@@ -129,7 +125,7 @@ export default function AdminSidebar({ user, role }: AdminSidebarProps) {
 
                     {!isCollapsed && (
                         <motion.div
-                            initial={{ opacity: 0 }}
+                            initial={false}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             className="flex-1 min-w-0"

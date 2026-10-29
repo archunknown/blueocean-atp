@@ -54,7 +54,7 @@ export default function ImageUpload({ initialUrl, onImageSelect, name = 'image' 
                 {preview ? (
                     <motion.div
                         key="preview"
-                        initial={{ opacity: 0, scale: 0.95 }}
+                        initial={false}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         className="relative group"
@@ -82,7 +82,7 @@ export default function ImageUpload({ initialUrl, onImageSelect, name = 'image' 
                 ) : (
                     <motion.label
                         key="upload"
-                        initial={{ opacity: 0, scale: 0.95 }}
+                        initial={false}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         onDrop={handleDrop}

@@ -125,7 +125,7 @@ export default function ToursListClient({ initialTours }: ToursListClientProps) 
                             <motion.div
                                 key={tour.id}
                                 layout
-                                initial={{ opacity: 0, scale: 0.95 }}
+                                initial={false}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 className={`group bg-white rounded-xl border shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden ${!tour.is_active ? 'opacity-75 grayscale-[0.5]' : ''} ${!tour.is_active ? 'border-gray-200' : 'border-gray-100'}`}

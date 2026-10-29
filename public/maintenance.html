@@ -1,71 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitio en Mantenimiento</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Volvemos pronto | Blue Ocean Paracas</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        background: #092f40;
+        color: #fff;
+        font:
+          14px Arial,
+          sans-serif;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .copy {
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      .copy img {
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        margin-bottom: 60px;
+      }
+      .label {
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        color: #add7d6;
+      }
+      h1 {
+        font:
+          normal clamp(45px, 6vw, 80px)/1.04 Georgia,
+          serif;
+        letter-spacing: -0.04em;
+        margin: 25px 0;
+      }
+      h1 em {
+        color: #add7d6;
+      }
+      p {
+        max-width: 360px;
+        line-height: 1.9;
+        color: #bed0d2;
+      }
+      .line {
+        width: 50px;
+        height: 3px;
+        background: #fc0;
+        margin-top: 35px;
+      }
+      .photo {
+        background: url('/gallery/reserva/reserva.jpeg') center/cover;
+      }
+      .note {
+        margin-top: 30px;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+      }
+      @media (max-width: 700px) {
+        body {
+          grid-template-columns: 1fr;
         }
-        .container {
-            padding: 2rem;
-            max-width: 600px;
-            width: 90%;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(7px);
-            -webkit-backdrop-filter: blur(7px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeIn 1s ease-in-out;
+        .copy {
+          padding: 40px 25px;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .copy img {
+          margin-bottom: 35px;
         }
-        .logo {
-            max-width: 150px;
-            margin-bottom: 1.5rem;
+        .photo {
+          min-height: 260px;
         }
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin: 0 0 1rem 0;
-            letter-spacing: 1px;
-        }
-        p {
-            font-size: 1.1rem;
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-        .footer {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <img src="/logo.png" alt="Logo de la Empresa" class="logo">
-        <h1>Sitio en Mantenimiento</h1>
-        <p>Estamos realizando mejoras importantes en nuestro sitio web para ofrecerte una mejor experiencia. Estaremos de vuelta muy pronto.</p>
-        <div class="footer">
-            <p>&copy; 2024 Blue Ocean Adventure Tours Paracas</p>
-        </div>
-    </div>
-</body>
+  </head>
+  <body>
+    <main class="copy">
+      <img src="/logo.png" alt="Blue Ocean Adventure Tours Paracas" /><span
+        class="label"
+        >BLUE OCEAN / PARACAS</span
+      >
+      <h1>Una pequeña pausa.<br /><em>Volvemos pronto.</em></h1>
+      <p>
+        Estamos realizando mejoras en nuestra web. Pronto podrás volver a
+        explorar nuestras experiencias.
+      </p>
+      <div class="line"></div>
+      <p class="note">EL MAR Y EL DESIERTO SIGUEN AQUÍ.</p>
+    </main>
+    <div
+      class="photo"
+      role="img"
+      aria-label="Reserva Nacional de Paracas"
+    ></div>
+  </body>
 </html>

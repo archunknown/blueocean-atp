@@ -44,7 +44,7 @@ export default function StickyCTA() {
         >
           <Link
             href="/tours"
-            className="group relative flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-warmYellow to-yellow-400 px-5 py-3 text-sm font-bold text-oceanBlue shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-yellow-500/50 xs:px-6 xs:py-3.5 sm:px-8 sm:py-4 sm:text-base"
+            className="floating-tour-link group relative flex items-center gap-2 overflow-hidden  px-5 py-3 text-sm font-bold text-oceanBlue transition-colors xs:px-6 xs:py-3.5 sm:px-8 sm:py-4 sm:text-base"
           >
             {/* Glow effect */}
             <div className="absolute inset-0 -z-10 animate-pulse bg-gradient-to-r from-warmYellow to-yellow-400 opacity-50 blur-xl"></div>
